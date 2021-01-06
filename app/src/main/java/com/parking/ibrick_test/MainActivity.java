@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 //                json.addProperty("email","abdulsalamshaikh101@gmail.com");
 //                Toast.makeText(context, "click", Toast.LENGTH_SHORT).show();
 //                Ion.with(context)
-//                        .load("http://vps3.inspeero.com:3007/api/getallactivepost")
+//                        .load("use this link here")
 //                        .asJsonArray()
 //                        .setCallback(new FutureCallback<JsonArray>() {
 //                            @Override
