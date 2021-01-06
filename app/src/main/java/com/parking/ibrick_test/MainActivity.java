@@ -76,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //testing other api also worked
 //                JsonObject json = new JsonObject();
-//                json.addProperty("email","abdulsalamshaikh101@gmail.com");
+//                json.addProperty("email","your@gmail.com");
 //                Toast.makeText(context, "click", Toast.LENGTH_SHORT).show();
 //                Ion.with(context)
 //                        .load("use this link here")
@@ -92,25 +93,12 @@ public class MainActivity extends AppCompatActivity {
 //                        });
 
                 try {
-//                    ParcelFileDescriptor prd =
-//                            context.getContentResolver().openFileDescriptor(imguri,"r",null);
-//                    InputStream inputStream = new  FileInputStream(prd.getFileDescriptor());
-//                    File file = new File(context.getCacheDir(),imagepath);
-//                    OutputStream ops = new FileOutputStream(file);
-//
-//                    IOUtils.copy(inputStream,ops);
+//  
 
-//                    File path  = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-//                    File file = new File(path,imagepath);
-//                    path.mkdirs();
-////                    File img =File.createTempFile(imagepath,".jpg",path);
-
-
-
+                    // i am remove link and my email 
                     Ion.with(context)
-                            .load("POST","http://vps3.inspeero.com:3007/api/setprofile")
-//                            .setHeader("Content-Type","multipart/form-data")
-                            .setMultipartParameter("email", "abdulsalamshaikh101@gmail.com")
+                            .load("POST","put node api here")
+                            .setMultipartParameter("email", "your@gmail.com")
                             .setMultipartParameter("isAdmin", "false")
                             .setMultipartParameter("fullname", etname.getText().toString())
                             .setMultipartParameter("city", "azamgarh")
@@ -139,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                     tvpathimg.setText(e.getMessage());
-                    Toast.makeText(context, "file cache wala error " +  e.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "error " +  e.getMessage(), Toast.LENGTH_LONG).show();
 
                 }//
 
@@ -149,21 +137,11 @@ public class MainActivity extends AppCompatActivity {
     }//
 
 
-
-
-
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 101 && resultCode == RESULT_OK) {
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            imgbtn.setImageBitmap(photo);
-//            knop.setVisibility(Button.VISIBLE);
 
-
-            // CALL THIS METHOD TO GET THE URI FROM THE BITMAP
-//            Uri tempUri = getImageUri(getApplicationContext(), photo);
             Uri tempUri = data.getData();
             imguri = tempUri;
             // CALL THIS METHOD TO GET THE ACTUAL PATH
@@ -171,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             imagepath = filenamepath;
             tvpathimg.setText(imagepath);
             Toast.makeText(this.getApplicationContext(), "" + filenamepath, Toast.LENGTH_LONG).show();
-//            File finalFile = new File(filenamepath);
+
 
             Log.i("fname", "onActivityResult: imgefilepath" + filenamepath);
 //            System.out.println(filename);
@@ -180,13 +158,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public  Uri getImageUri(Context inContext, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        return Uri.parse(path);
-    }
 
     public String getRealPathFromURI(Uri uri)
         {
