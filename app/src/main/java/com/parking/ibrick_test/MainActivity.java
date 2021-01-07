@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onCompleted(Exception e, String result) {
 
+
                                     try {
 
                                         tvpathimg.setText( result);
